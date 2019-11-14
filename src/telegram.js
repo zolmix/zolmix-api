@@ -12,7 +12,7 @@ router.post('/sendMessage', async function (ctx) {
     try {
         body.phoneRaw = body.phone?body.phone.replace(/\s+|\+|\(|\)/g, ''):'';
         let dt = moment().utc().utcOffset(5);
-        bot.telegram.sendMessage(chatId, `${dt.format('DD.MM.YYYY HH:mm')}
+        bot.telegram.sendMessage(chatId, `${dt.format('HH:mm DD.MM.YYYY')}
 <b>${body.fio||''}</b>
 <a href="tel:${body.phoneRaw}">${body.phone||''}</a>
 ${body.city||''}
